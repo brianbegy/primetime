@@ -1,5 +1,4 @@
 # primetime
-Are we ready for prime time?
 
 ## What it does
 
@@ -66,4 +65,4 @@ rspec ./
 ```
 
 # Dependencies
-I used [faker](https://github.com/stympy/faker)to generate fake test data and [simplecov](https://github.com/colszowka/simplecov) to calculate code coverage.  [Rubocop](https://github.com/rubocop-hq/rubocop) made sure everything looks nice.
+I used [faker](https://github.com/stympy/faker) to generate fake test data and [simplecov](https://github.com/colszowka/simplecov) to calculate code coverage.  [Rubocop](https://github.com/rubocop-hq/rubocop) made sure everything looks nice.

@@ -5,18 +5,22 @@ module PrimeTime
   class ProductHashFactory
     # Accepts an array of integers and calculates a multiplication table as a hash
     #
-    # The ON^2 aspect is not good.
-    # We could do some kind of "did we already calculate this product?"
-    # logic, but I'm not convinced that would be cheaper than
-    # just recaculating any duplicates
+    # The ON^2 aspect smells off.
+    #
+    # We could avoid double calculating the product by
+    # keeping a hash where the key is the two primes
+    # and the value the product,
+    # but I'm not convinced maintaining that is any faster than
+    # just doing the multiplication 2x
+    # building a times table *is* an On^2 problem.
     def self.create(input)
       data = {}
-      input.each do |i1|
+      input.each do |i|
         products = []
-        input.each do |i2|
-          products << i1 * i2
+        input.each do |j|
+          products << i * j
         end
-        data[i1] = products
+        data[i] = products
       end
       data
     end

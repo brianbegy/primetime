@@ -4,7 +4,7 @@
 
 It creates a multiplication table consisting of the products of primes up through a number the user provides.
 
-## How do I use it
+## How to use it
 
 Navigate to the project root and call it:
 
@@ -42,7 +42,7 @@ Hmmm... I couldn't parse 'cheeseburger'.  I'll just use 10 instead.
 ```
 
 
-# Design Choices
+## Design Choices
 
 `primes.rb` The starting point for the application.  It calls a number of helper classes and factories.
 
@@ -54,7 +54,7 @@ Hmmm... I couldn't parse 'cheeseburger'.  I'll just use 10 instead.
 
 `report_factory.rb` Takes a hash of data and turns it into an array of strings, padding the columns so the values right-align nicely.
 
-# Tests
+## Tests
 
 Each class has a corresponding `_spec` file except the starting point of the application.
 
@@ -64,5 +64,6 @@ You may run the tests by navigating to the application root and typing
 rspec ./
 ```
 
-# Dependencies
+## Dependencies
+
 I used [faker](https://github.com/stympy/faker) to generate fake test data and [simplecov](https://github.com/colszowka/simplecov) to calculate code coverage.  [Rubocop](https://github.com/rubocop-hq/rubocop) made sure everything looks nice.

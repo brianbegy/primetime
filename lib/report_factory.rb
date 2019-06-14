@@ -11,6 +11,10 @@ module PrimeTime
       raise StandardError, "desired width #{desired_width} is not valid for #{n}"
     end
 
+    # calculates the widest column we will need to hold all the data
+    # This is a bit wasteful as it pads the first column
+    # the same as the last column.  We could refactor to make this smart enough
+    # to pad each column only with the padding it needs
     def self.calculate_max_column_width(data)
       max_val = 0
       # get padding for array
@@ -27,17 +31,16 @@ module PrimeTime
     # All numbers right-justify.
     def self.create(data)
       rows = []
-      max_key_width = data.each_key.to_a.max.to_s.length
       max_width = calculate_max_column_width(data)
 
       # format top row
       top_row = data.each_key.map { |r| pad_number(max_width, r) }
-      rows << " #{' ' * max_key_width }#{top_row.join(' ')}"
+      rows << " #{' ' * max_width}#{top_row.join(' ')}"
 
       # format all rows
       data.each do |k, v|
         padded_nums = v.map { |value| pad_number(max_width, value) }
-        rows << "#{pad_number(max_key_width, k)} #{padded_nums.join(' ')}"
+        rows << "#{pad_number(max_width, k)} #{padded_nums.join(' ')}"
       end
       rows
     end

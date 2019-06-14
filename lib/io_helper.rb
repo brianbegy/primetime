@@ -7,10 +7,9 @@ module PrimeTime
     def self.prompt_for_max(default_value)
       print_text "Calculate prime products up to what value? default = #{default_value}"
       value = receive_text_input
-      if value.nil? || value.empty?
-        return default_value
-      end 
-      return Integer(value)
+      return default_value if value.nil? || value.to_s.empty?
+
+      Integer(value)
     rescue ArgumentError
       print_text "Hmmm... I couldn't parse '#{value}'.  I'll just use #{default_value} instead."
       default_value

@@ -11,5 +11,5 @@ module PrimeTime
   primes = PrimeTime::PrimesHelper.generate_primes(max_value)
   data = PrimeTime::ProductHashFactory.create(primes)
   report = PrimeTime::ReportFactory.create(data)
-  puts report
+  PrimeTime::IOHelper.print_text(report)
 end
